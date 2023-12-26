@@ -1,8 +1,10 @@
 <?php 
+set_include_path(get_include_path() . PATH_SEPARATOR . __DIR__);
+
+
   include_once "Model/connect.php";
   include_once "Model/hanghoa.php";
   // include_once "Model/
-
   set_include_path(get_include_path() . PATH_SEPARATOR . 'Model/');
   spl_autoload_extensions();
   spl_autoload_register();

@@ -1,6 +1,20 @@
 
 <!--Phân trang-->
-
+<?php
+    $hh=new hanghoa();
+    $result=$hh->getHangAoAll();
+    $count=$result->rowCount();
+    //cho giới hạn môi xtrang bao nhieu sản phẩm
+    $limit=20;
+    //tinh xem có bao nh page
+    $trang=new Page();
+    ///lấy ra số trang
+    $page=$trang->findPage($count,$limit);//trả vè 
+    //lấy start
+    $start=$trang->findStart($limit);
+    //khởi đầu trang 
+    $current_Page=isset($_GET['page'])?$_GET['page']:1;
+?>
 <?php
 $ac=1;
 if (isset($_GET['action'])) {
@@ -108,8 +122,9 @@ h5 {
                         echo '<h4 class="text-uppercase font-weight-bold mb-5">Áo Khoác</h4>';
                         break;
                     case 5:
-                        $result = $hh->getHangAoAll();
-                                    break;
+                        ///$result = $hh->getHangAoAll();
+                        $result = $hh->getHangAoAll_page($start,$limit);
+                          break;
                 }
 
                 while ($set = $result->fetch()):
@@ -132,4 +147,18 @@ h5 {
             </section>
         </div>
     </div>
+</div>
+
+<div class="col-md-6 div col-md-offset-3">
+    <ul class="pagination">
+        <?php
+        // Display pagination links only when the category is "Tất cả sản phẩm"
+        if ($ac == 5) {
+            for ($i = 1; $i <= $page; $i++) {
+                ?>
+                <li><a href="index.php?action=hanghoa&act=aoall&page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+            <?php }
+        }
+        ?>
+    </ul>
 </div>
