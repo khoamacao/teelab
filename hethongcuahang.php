@@ -34,10 +34,10 @@
   <?php
   include_once "View/menu.php"
   ?>
-    <body style="font-size: 25px; margin-top: 30px;">
+    <body>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
-        <h1 class="title-head" style="font-size: 45px;margin-top: 50px;margin-left: 45px;  font-weight: bold;">Hệ thống cửa hàng</h1>
+        <h1 class="title-head" style="font-size: 25px;margin-top: 50px;margin-left: 45px;  font-weight: bold;">Hệ thống cửa hàng</h1>
       <div class="content-page rte">
                 
                 <h4 style="margin-left:50px;">

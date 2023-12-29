@@ -44,8 +44,6 @@ class connect
 	// function execp($query)
 	// {
 	// 	$statement=$this->db->prepare
-	// }
-
-	
+	// }	
 }
 ?>

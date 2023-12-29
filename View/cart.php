@@ -13,7 +13,6 @@
           </tr>
         </thead>
         <tbody>
-          
             <tr>
               <td></td>
               <td><img width="50px" height="50px" src=""></td>

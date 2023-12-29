@@ -1,33 +1,92 @@
-<header class="row no-gutters">
-    <!-- Navigation for products -->
-    <!-- Registration -->
-    <section class="col-12" style="text-align: right;">
-        <div class="col-12">
-            <div class="row">
-                <nav class="navbar navbar-expand-lg n navbar-light bg-light" style="margin-bottom: 0px;"> <!-- Right -->
-                    <!-- Move the form to the right using the "ml-auto" class -->
-                    <ul class="navbar-nav ml-auto">
-                        <li class="mr-2">
-                            <form class="form-inline" action="" method="post">
+
+<style>
+    /* Adjustments for the navbar */
+    .navbar-nav {
+        margin-left: auto; /* This will push the navigation items to the left */
+    }
+
+    .navbar-nav .nav-item {
+        margin-right: 10px; /* Adjust the spacing between navigation items if needed */
+    }
+
+    /* Style for the search input and button */
+    .input-group {
+        display: flex;
+        align-items: center;
+    }
+
+    .form-control {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    #btsearch {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+</style>
+
+    <!-- dang ky -->
+    <section class="col-12">
+       
+            <div class="col-12">
+                <div class="row">
+                    <nav class="navbar navbar-expand-lg n navbar-light bg-light" style="margin-bottom: 0px; ">
+                    <form class="form-inline" action="" method="post">
                                 <div class="input-group">
-                                    <input type="text" style="width: 300px; height: 40px; border-radius: 10px;" name="txtsearch" class="form-control" placeholder="Tìm Kiếm" />
+                                    <input type="text" style="width: 200px; height: 40px; border-radius: 10px;" name="txtsearch" class="form-control" placeholder="Tìm Kiếm" />
                                     <button style="width: 35px; height: 40px; border-radius: 10%;" type="submit" id="btsearch" value=""><i class="bi bi-search-heart"></i></button>
                                 </div>
                             </form>
-                        </li>
-                        <li class="mr-2">
-                            <a href="" class="nav-link"><img src="Content/imagetourdien/cartx2.png" width="30px" height="30px" alt=""></a>
-                        </li>
-                        <li style="margin-top: 10px;">
-                            <p style="color: red; margin: 0;">(0)</p>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </section>
-</header>
+                        <!-- Right -->
+                        <ul class="navbar-nav ml-auto">
+                                
+                            <li class="nav-item">
+                                <a href="index.php?action=dangky" class="nav-link">Đăng Ký</a>
+                            </li>
+                            <?php
+                                if (!isset($_SESSION['makh'])) {
 
+                                } 
+                                ?>
+                            <li class="nav-item">
+                                <a href="index.php?action=dangnhap" class="nav-link">Đăng Nhập</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="index.php?action=dangxuat" class="nav-link">Đăng Xuất</a>
+                            </li>
+                            <li>
+                                <a href="" class="nav-link"><img src="Content/imagetourdien/cartx2.png" width="30px" height="30px" alt=""></a>
+
+                            </li>
+                            <li>
+                                <p style="color: red; margin-top: 20px; margin-left: 0px;">(0)</p>
+                            </li>
+                            <li>
+                                    <p style="color: red; margin-top: 20px; margin-left: 0px;"></p>
+                                
+                            </li>
+                            <li>
+                            <?php 
+                                if(isset($_SESSION['makh'])&& isset($_SESSION['tenkh'])){
+                                    echo '  <p style="color: red; margin-top: 20px; margin-left: 0px;">'.$_SESSION['tenkh'].'</p>';
+
+                                }       else{
+                                    echo '  <p style="color: red; margin-top: 20px; margin-left: 0px;">Xin Chào!</p>';
+                                }     
+                                              
+                                 ?>
+                            <li>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+       
+    </section>
+
+
+</header>
 <!-- dang ky -->
 <style>
         /* Add your custom styles here */
@@ -95,7 +154,7 @@
         }
 
         .dropdown-menu a:hover {
-            background-color: red;
+        background-color: red;
         }
         hr {
         height: 0.5px;
@@ -104,8 +163,10 @@
         visibility: visible;
         width: 90%; /* Kích thước chiều rộng của hr */
     }
-        
-
+    .nav-link:hover {
+    color: black;
+    opacity: 0.5; /* Set the desired opacity value */
+}
 </style>
 
         
@@ -127,7 +188,7 @@
             <a class="nav-link" style="font-size: 28px;" href="size.php">Bảng Size</a>    
         </li>
         <li class="nav-item">
-            <a class="nav-link" style="font-size: 28px;" href="">Hệ Thống Cửa Hàng</a>
+            <a class="nav-link" style="font-size: 28px;" href="hethongcuahang.php">Hệ Thống Cửa Hàng</a>
         </li>
     </ul>
 <hr class="my-1 "> 

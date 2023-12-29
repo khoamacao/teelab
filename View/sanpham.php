@@ -73,7 +73,17 @@ h4 {
 .my-4.font-weight-bold {
     color: red;
 }
+/* Add this CSS to change the hover color of the product name to red */
+.mb-3.text-left span {
+        color: black;
+        transition: color 0.3s; /* Add smooth transition effect */
+        text-decoration: none; /* Remove underline by default */
+    }
 
+    /* Change the color to red on hover */
+    .mb-3.text-left:hover span {
+        color: red;
+    }
 /* Kiểu cho nút New */
 .btn.btn-danger {
     font-size: 14px;
@@ -84,11 +94,50 @@ h5 {
     font-size: 14px;
     color: #555;
 }
+/* Add your custom styles for the sidebar */
+.col-md-3 {
+    background-color: #f8f9fa; /* Set a background color */
+    padding: 15px; /* Add padding for better spacing */
+    border-right: 1px solid #dee2e6; /* Add a border on the right side */
+}
+
+.list-group {
+    margin-bottom: 20px; /* Add margin at the bottom */
+}
+
+.list-group-item {
+    font-size: 18px;
+    color: #495057;
+    border: none;
+    border-radius: 5px; /* Add rounded corners */
+    transition: background-color 0.3s; /* Add a transition for a smooth effect */
+
+    /* Center the text and add some padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.list-group-item:hover {
+    background-color: #e9ecef; /* Change background color on hover */
+}
+
+/* Style the icon inside the list items */
+.list-group-item i {
+    margin-right: 10px;
+}
+.row2{
+    padding: 25px;
+}
+
+/* Add more styles as needed */
+
 </style>
 
 
 <div class="container-fluid">
-    <div class="row">
+    <div class="row2">
         <!-- Left Sidebar -->
         <div class="col-md-3">
             <div class="list-group">
@@ -107,23 +156,25 @@ h5 {
                 switch ($ac) {
                     case 1:
                         $result = $hh->getHangAoThunAll();
-                        echo '<h4 class="text-uppercase font-weight-bold mb-5">Áo Thun</h4>';
+                        echo '<h1 class="text-uppercase font-family: "Futura",sans-serif; mb-5">Áo Thun</h1>';
                         break;
                     case 2:
                         $result = $hh->getHangAoPoloAll();
-                        echo '<h4 class="text-uppercase font-weight-bold mb-5">Áo Polo</h4>';
+                        echo '<h1 class="text-uppercase  font-family: "Futura",sans-serif; mb-5">Áo Polo</h1>';
                         break;
                     case 3:
                         $result = $hh->getHangAoSoMiAll();
-                        echo '<h4 class="text-uppercase font-weight-bold mb-5">Áo Sơ Mi</h4>';
+                        echo '<h1 class="text-uppercase  font-family: "Futura",sans-serif; mb-5">Áo Sơ Mi</h1>';
                         break;
                     case 4:
                         $result = $hh->getHangAoKhoacAll();
-                        echo '<h4 class="text-uppercase font-weight-bold mb-5">Áo Khoác</h4>';
+                        echo '<h1 class="text-uppercase  font-family: "Futura",sans-serif; mb-5">Áo Khoác</h1>';
                         break;
                     case 5:
                         ///$result = $hh->getHangAoAll();
                         $result = $hh->getHangAoAll_page($start,$limit);
+                        echo '<h1 class="text-uppercase  font-family: "Futura",sans-serif; mb-5">Tất Cả Các Sản Phẩm</h1>';
+                  
                           break;
                 }
 
@@ -138,7 +189,7 @@ h5 {
 
                         <h5 class="my-4 font-weight-bold" style="color: red;"><?php echo $set['dongia']; ?><sup><u>đ</u></sup></br>
                         </h5>
-                        <a href="">
+                        <a href="index.php?action=hanghoa&act=sanphamchitiet&id=<?php echo $set['mahh']; ?>">
                             <span><?php echo $set['tenhh'] . "-" . $set['mausac']; ?></span></br></a>
                         <button class="btn btn-danger" id="may4" value="lap 4">New</button>
                         <h5>Số lượt xem:<?php echo $set['soluotxem']; ?></h5>

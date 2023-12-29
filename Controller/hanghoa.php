@@ -19,5 +19,8 @@
         case 'aoall':
         include_once "./View/sanpham.php";
             break;
+        case 'sanphamchitiet':
+            include_once "./View/sanphamchitiet.php";
+            break;
  }
 ?>
