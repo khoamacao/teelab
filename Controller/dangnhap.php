@@ -1,35 +1,46 @@
-<?php
-$act = "dangnhap";
-if (isset($_GET['act'])) {
+<?php 
+   $act = 'dangnhap';
+   if(isset($_GET['act'])) {
     $act = $_GET['act'];
-}
-switch ($act) {
+   }
+   switch($act) {
     case 'dangnhap':
         include_once "./View/login.php";
         break;
     case 'dangnhap_action':
         $user = '';
         $pass = '';
-        if (isset($_POST['submit'])) {
+        if(isset($_POST['txtusername']) && isset($_POST['txtpassword'])) {
+           // echo '<script>alert("hhhhh");</script>';
             $user = $_POST['txtusername'];
             $pass = $_POST['txtpassword'];
-            
-            $passnew = md5($pass);
+            //Mã hóa pass
+            $saltF = "G234#!";
+            $saltL = "Ta78@#";
+            $passnew = md5($saltF.$pass.$saltL);
+            //Controller yêu cầu model truy vấn xem có user đó hay không
             $kh = new user();
-            $logUser = $kh->loginUser($user,$passnew);
-            $count =$logUser->rowCount();                                  
-            $uslg =$logUser->fetch();     
-            if ($count > 0) {
-                $_SESSION['makh'] = $uslg['makh'];
-                $_SESSION['tenkh'] = $uslg['tenkh'];
-                echo $_SESSION['makh'];
-                echo '<script> alert("Đăng nhập thành công");</script>';
-                echo '<meta http-equiv="refresh" content="0;url=./index.php?action-home"/>';
-            } else {
+            $logkh = $kh->loginUser($user, $passnew);//trả lại array
+           var_dump($logkh);
+            if($logkh) {
+                //Nếu đăng nhập thành công, thì tạo session để lưu trữ thông tin khách hàng
+                $_SESSION['makh'] = $logkh['makh'];
+                $_SESSION['tenkh'] = $logkh['tenkh'];
+                echo '<script>alert("Đăng nhập thành công");</script>';
+                echo '<meta http-equiv="refresh" content="0; url=./index.php"/>';
+            }
+            else {
                 echo '<script> alert("Đăng nhập không thành công");</script>';
-                echo '<meta http-equiv="refresh" content="0;url=./index.php?action=dangnhap"/>';
+                echo '<meta http-equiv="refresh" content="0; url=./index.php?action=dangnhap"/>';
             }
         }
+            break;
+    case 'dangxuat':
+        unset($_SESSION['makh']);
+        unset($_SESSION['tenkh']);
+        echo '<meta http-equiv="refresh" content="0; url=./index.php"/>';
         break;
-}
+   }
 ?>
+
+

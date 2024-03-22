@@ -1,15 +1,20 @@
 <?php 
-  session_start();
-set_include_path(get_include_path() . PATH_SEPARATOR . __DIR__);
-
-
-  include_once "Model/connect.php";
-  include_once "Model/hanghoa.php";
-  // include_once "Model/
-  set_include_path(get_include_path() . PATH_SEPARATOR . 'Model/');
-  spl_autoload_extensions();
-  spl_autoload_register();
-  ?>
+    // spl_autoload: tự động load lên những file là hướng đối tượng tức là class
+    // Cách 1
+    // spl_autoload_register('myModelLoader');
+    // function myModelLoader($className) {
+    //     $path = 'Model/';
+    //     include_once $path.$className.'.php';
+    // }
+    
+    // Cách 2
+    session_start();  
+    // session_destroy();
+    include_once "Model/class.phpmailer.php";
+    set_include_path(get_include_path().PATH_SEPARATOR.'Model/');
+    spl_autoload_extensions('.php');
+    spl_autoload_register();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,10 +35,8 @@ set_include_path(get_include_path() . PATH_SEPARATOR . __DIR__);
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- link đăng nhập -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> 
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
-    
     <!-- end link đăng nhập -->
     <link rel="stylesheet" type="text/css" href="Content/CSS/Tour.css" />
     <title>SanPham</title>

@@ -32,11 +32,68 @@
             <div class="col-12">
                 <div class="row">
                     <nav class="navbar navbar-expand-lg n navbar-light bg-light" style="margin-bottom: 0px; ">
-                    <form class="form-inline" action="" method="post">
+                   
                                 <div class="input-group">
-                                    <input type="text" style="width: 200px; height: 40px; border-radius: 10px;" name="txtsearch" class="form-control" placeholder="Tìm Kiếm" />
-                                    <button style="width: 35px; height: 40px; border-radius: 10%;" type="submit" id="btsearch" value=""><i class="bi bi-search-heart"></i></button>
-                                </div>
+                                <style>
+    /* Style for the form */
+    .form-inline {
+        display: flex; /* Use flexbox for layout */
+        justify-content: center; /* Center the form horizontally */
+        align-items: center; /* Center items vertically */
+      
+    }
+
+    /* Style for the input group */
+    .input-group {
+        width: 500px; /* Adjust width as needed */
+        margin-right: 10px; /* Add margin between input field and button */
+    }
+
+    /* Style for the input field */
+    .form-control {
+        flex: 1; /* Allow input field to grow */
+        height: 35px;
+        border-radius: 5px; /* Rounded corners */
+        padding: 0 10px; /* Add padding for spacing */
+    }
+
+    /* Style for the submit button */
+    .input-group-text {
+        height: 35px;
+        border-radius: 5px; /* Rounded corners */
+        background-color: #007bff; /* Button background color */
+        border: 1px solid #007bff; /* Button border color */
+        color: #fff; /* Button text color */
+        cursor: pointer; /* Cursor style */
+        padding: 0 15px; /* Add padding for spacing */
+    }
+
+    /* Hover effect for the submit button */
+    .input-group-text:hover {
+        background-color: #0056b3; /* Darker background color on hover */
+        border-color: #0056b3; /* Darker border color on hover */
+    }
+</style>
+
+<!-- Your HTML form with the added CSS classes -->
+<form class="form-inline" action="index.php?action=hanghoa&act=timkiem" method="post">
+    <div class="input-group">
+        <input type="text" name="txtsearch" class="form-control" placeholder="Tìm Kiếm" />
+    </div>
+    <input class="input-group-text" type="submit" id="btsearch" value="Tìm Kiếm" />
+</form>
+
+                        <!--  
+                                $loai = new loaisanpham();
+                                $kq=$loai->getLoaiHangHoa();
+                                while($set=$kq->fetch()):
+                            ?> -->
+                        <!-- <li>
+                                <a href="" style="font-size: 30px;"><?php echo $set['tenloai']; ?></a>
+                            </li>
+                           
+                                endwhile;
+                            ?>  -->     </div>
                             </form>
                         <!-- Right -->
                         <ul class="navbar-nav ml-auto">
@@ -56,10 +113,11 @@
                                 <a href="index.php?action=dangxuat" class="nav-link">Đăng Xuất</a>
                             </li>
                             <li>
-                                <a href="" class="nav-link"><img src="Content/imagetourdien/cartx2.png" width="30px" height="30px" alt=""></a>
+                                <a href="index.php?action=giohang" class="nav-link"><img src="Content/imagetourdien/cart.png" width="50px" height="30px" alt=""></a>
 
                             </li>
                             <li>
+
                                 <p style="color: red; margin-top: 20px; margin-left: 0px;">(0)</p>
                             </li>
                             <li>
@@ -195,19 +253,19 @@
     <ul class="navbar-nav">
         <!-- Second Line -->
         <li class="nav-item">
-            <a class="nav-link" href="http://127.0.0.1/teelab/index.php?action=hanghoa&act=aoall">Tất Cả Sản Phẩm</a>
+            <a class="nav-link" href="http://127.0.0.1/vip/index.php?action=hanghoa&act=aoall">Tất Cả Sản Phẩm</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="http://127.0.0.1/teelab/index.php?action=hanghoa&act=aothun">Áo Thun</a>
+            <a class="nav-link" href="http://127.0.0.1/vip/index.php?action=hanghoa&act=aothun">Áo Thun</a>
         </li> 
         <li class="nav-item">
-            <a class="nav-link" href="http://127.0.0.1/teelab/index.php?action=hanghoa&act=aopolo">Áo PoLo</a>
+            <a class="nav-link" href="http://127.0.0.1/vip/index.php?action=hanghoa&act=aopolo">Áo PoLo</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="http://127.0.0.1/teelab/index.php?action=hanghoa&act=aosomi">Áo Sơ Mi</a>
+            <a class="nav-link" href="http://127.0.0.1/vip/index.php?action=hanghoa&act=aosomi">Áo Sơ Mi</a>
         </li> 
         <li class="nav-item">
-            <a class="nav-link" href="http://127.0.0.1/teelab/index.php?action=hanghoa&act=aokhoac">Áo Khoác</a>
+            <a class="nav-link" href="http://127.0.0.1/vip/index.php?action=hanghoa&act=aokhoac">Áo Khoác</a>
         </li>
        
         <!-- Add other categories as needed -->

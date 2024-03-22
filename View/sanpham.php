@@ -28,6 +28,10 @@ if (isset($_GET['action'])) {
         }if($_GET['act']=='aoall'){
             $ac=5;
         }
+        if($_GET['act']=='timkiem'){
+             $ac=6;
+             }
+       
     }
 
 }
@@ -176,6 +180,15 @@ h5 {
                         echo '<h1 class="text-uppercase  font-family: "Futura",sans-serif; mb-5">Tất Cả Các Sản Phẩm</h1>';
                   
                           break;
+
+                          case 6:
+                            ///$result = $hh->getHangAoAll();
+                            if (isset($_POST['txtsearch'])) {
+                                $tk = $_POST['txtsearch']; //gót
+                                $result = $hh->timkiemSP($tk);
+                            }
+                              break;
+                            
                 }
 
                 while ($set = $result->fetch()):

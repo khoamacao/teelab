@@ -1,87 +1,87 @@
-<style>
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-}
-
-.login-block {
-    background: #f4f4f4;
-    padding: 30px 0;
-    height: 200px;
-    display: flex;
-    align-items: center;
-}
-
+<style >
+  /* Custom CSS for Login Page */
 .login-sec {
-    box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.1);
-    background: #fff;
-    border: 2px solid #337ab7;
-    border-radius: 10px;
-    background-color: aqua;
+  background-color: #f8f9fa;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-.login-form {
-    width: 400px;
-    margin: 0 auto;
-    padding: 10px; /* Add padding to create space between content and border */
-   
+.login-sec h3 {
+  color: #333;
 }
 
-.login-form h3 {
-    text-align: center;
-    color: #333;
+.login-form .form-group {
+  margin-bottom: 20px;
 }
 
-
-.text-uppercase {
-    text-transform: uppercase;
+.login-form label {
+  font-weight: bold;
+  color: #555;
 }
 
-.form-control {
-    border-radius: 25px;
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-
-
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary:active {
-    background-color: #286090;
-    border-color: #204d74;
+.login-form button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
 }
-.bodder{
-  border: 4px solid #337ab7; /* Add border around the form */
-    border-radius: 8px; /* Optional: Add border radius for rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
-    background-color: aqua;
-    height: 250px;
-    width: 450px;
-    margin-left: 25%;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-</style>
 
-<div class="container">
+.login-form button:hover {
+  background-color: #0056b3;
+}
+
+.copy-text {
+  margin-top: 20px;
+  text-align: center;
+  color: #555;
+}
+
+.copy-text a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.copy-text a:hover {
+  text-decoration: underline;
+}
+
+  </style >
+  <div class="container">
     <div class="row">
-        <div class=" col-md-12 ">
-            <div class="bodder">
-            <h3 class="text-center" style="padding-top: 30px;"><b>Login</b></h3>
-            <form action="index.php?action=dangnhap&act=dangnhap_action" class="login-form" method="post">
-                <div class="form-group">
-                    <label for="exampleInputEmail1" class="text-uppercase">Username</label>
-                    <input type="text" class="form-control" name="txtusername" placeholder="">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1" class="text-uppercase">Password</label>
-                    <input type="password" class="form-control" name="txtpassword" placeholder="">
-                </div>        
-                    <button class="btn btn-primary float-right" type="submit" name="submit" >Đăng Nhập</button>
-                        
-            </form>
-            </div>
+      <div class="col-md-10 login-sec">
+        <h3 class="text-center"><b>Login Now</b></h3>
+        <form  action="index.php?action=dangnhap&act=dangnhap_action" class="login-form" method="post">
+        
+          <div class="form-group">
+            <label for="exampleInputEmail1" class="text-uppercase">Tên Đăng Nhập:</label>
+            <input type="text" class="form-control" name="txtusername" placeholder="">
+
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1" class="text-uppercase">Mật Khẩu:</label>
+            <input type="password" class="form-control" name="txtpassword" placeholder="">
+          </div>
+
+
+          <div class="form-check">
+            <button class="btn btn-primary float-right" type="submit"> Đăng Nhập</button> 
+            
+          </div>
+        </form>
+        <div class="copy-text">TEELAB<i class="fa fa-heart"></i> <a href="index.php?action=forget">Quên mật khẩu</a></div>
+      </div>
+     
         </div>
+      </div>
     </div>
-</div>

@@ -17,10 +17,14 @@
             include_once "./View/sanpham.php";
                 break;
         case 'aoall':
-        include_once "./View/sanpham.php";
+             include_once "./View/sanpham.php";
             break;
         case 'sanphamchitiet':
             include_once "./View/sanphamchitiet.php";
             break;
+         case 'timkiem':
+            include_once "./View/sanpham.php";
+                break;
+       
  }
 ?>
