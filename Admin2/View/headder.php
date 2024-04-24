@@ -22,9 +22,9 @@
                                 Quản Trị Doanh Mục
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="">Loại Sản Phẩm</a>
-                                <a class="dropdown-item" href="">Sản Phẩm</a>
-                                <a class="dropdown-item" href="#">Loại menu</a>
+                                <a class="dropdown-item" href="index.php?action=loai">Loại Sản Phẩm</a>
+                                <a class="dropdown-item" href="index.php?action=hanghoa">Sản Phẩm</a>
+                                <a class="dropdown-item" href="index.php?action=cthanghoa">Chi Tiết hàng hóa</a>
                             </div>
                         </li>
                         <!-- Thống kê -->
@@ -33,7 +33,7 @@
                                 Thống Kê
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Sản Phẩm bán được nhiều Nhất</a>
+                                <a class="dropdown-item" href="index.php?action=thongke">Sản Phẩm bán được nhiều Nhất</a>
                                 <a class="dropdown-item" href="#">Sản Phẩm chưa được giao</a>
                                 <a class="dropdown-item" href="#">Sản phẩm bán ít nhất</a>
                                 <a class="dropdown-item" href="">Thống kê</a>

@@ -1,85 +1,96 @@
-
+<?php
+  if(isset($_GET['id']))
+  {
+    $mahh=$_GET['id'];
+    $hh=new hanghoa();
+    $result=$hh->getHangHoaID($mahh);
+    $mahh=$result['mahh'];
+    $tenhh=$result['tenhh'];
+    $dacbiet=$result['dacbiet'];
+    $maloai=$result['maloai'];
+    $slx=$result['soluotxem'];
+    $ngaylap=$result['ngaylap'];
+    $mota=$result['mota'];
+  }
+?>
+<?php
+$ac=1;
+if(isset($_GET['action']))
+{
+  if(isset($_GET['act']) && $_GET['act']=='insert_action')
+  {
+    $ac=1;
+  }
+  else
+  {
+    $ac=2;
+  }
+}
+?>
 <div class="row col-md-4 col-md-offset-4" >
-  
+<?php
+if($ac==1)
+{
+  echo '<form action="index.php?action=hanghoa&act=insert_action" method="post" enctype="multipart/form-data">';
+}
+else
+{
+  echo '<form action="index.php?action=hanghoa&act=update_action" method="post" enctype="multipart/form-data">';
+}
+?>
     <table class="table" style="border: 0px;">
 
       <tr>
         <td>Mã hàng</td>
-        <td> <input type="text" class="form-control" name="mahh"  readonly/></td>
+        <td> <input type="text" class="form-control" name="mahh" value="<?php if(isset($mahh)) echo $mahh;?>"  readonly/></td>
       </tr>
       <tr>
         <td>Tên hàng</td>
-        <td><input type="text" class="form-control" name="tenhh"  maxlength="100px"></td>
+        <td><input type="text" class="form-control" name="tenhh" value="<?php if(isset($tenhh)) echo $tenhh;?>"  maxlength="100px"></td>
       </tr>
-      <tr>
-        <td>Đơn giá</td>
-        <td><input type="text" class="form-control" name="dongia" ></td>
-      </tr>
-      <tr>
-        <td>Giảm giá</td>
-        <td><input type="text" class="form-control" name="giamgia" ></td>
-      </tr>
-      <tr>
-        <td>Hình</td>
-        <td>
-         
-            <label><img width="50px" height="50px" src=""></label>
-            Chọn file để upload:
-            <input type="file" name="image" id="fileupload">
-         
-        </td>
-      </tr>
-      <tr>
-        <td>Nhóm</td>
-
-        <td>
-          <input type="text" class="form-control" name="nhom" >
-        </td>
-      </tr>
+     
       <tr>
         <td>Mã loại</td>
         <td>
           <select name="maloai" class="form-control" style="width:150px;">
-            
+            <?php
+            $selectedLoai=-1;
+            if(isset($maloai) && $maloai!=-1)
+            {
+              $selectedLoai=$maloai;
+            }
+              $loai=new loai();
+              $result=$loai->getLoai();
+              while($set=$result->fetch()):
+            ?>
+              <option value="<?php echo $set['maloai']?>" <?php if($selectedLoai==$set['maloai']) echo 'selected' ?>><?php echo $set['tenloai'];?></option>
+            <?php
+              endwhile;
+            ?>
           </select>
         </td>
       </tr>
       <tr>
         <td>Đặc biệt</td>
-        <td><input type="text" class="form-control" name="dacbiet" >
+        <td><input type="text" class="form-control" value="<?php if(isset($dacbiet)) echo $dacbiet;?>" name="dacbiet" >
         </td>
       </tr>
       <tr>
         <td>Số lượt xem</td>
-        <td><input type="text" class="form-control" name="slx" >
+        <td><input type="text" class="form-control" value="<?php if(isset($slx)) echo $slx;?>" name="slx" >
         </td>
       </tr>
       <tr>
         <td>Ngày lập</td>
-        <td><input type="text" class="form-control" name="ngaylap">
+        <td><input type="text" class="form-control" value="<?php if(isset($ngaylap)) echo $ngaylap;?>" name="ngaylap">
         </td>
       </tr>
       <tr>
         <td>Mô tả</td>
-        <td><input type="text" class="form-control" name="mota">
+        <td><input type="text" class="form-control" value="<?php if(isset($mota)) echo $mota;?>" name="mota">
         </td>
       </tr>
-      <tr>
-        <td>Số lượng tồn</td>
-        <td><input type="text" class="form-control" name="slt" >
-        </td>
-      </tr>
-      <tr>
-        <td>Màu sắc</td>
-        <td><input type="text" class="form-control" name="mausac" >
-        </td>
-      </tr>
-      <tr>
-        <td>Size</td>
-        <td><input type="text" class="form-control" name="size" >
-        </td>
-      </tr>
-
+     
       <tr>
         <td colspan="2">
           <input type="submit" value="submit">

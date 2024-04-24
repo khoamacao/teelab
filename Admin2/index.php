@@ -1,8 +1,10 @@
 <?php
-include "Model/connect.php";
-include "Model/hanghoa.php";
-include "Model/loaisanpham.php";
+include_once "Model/uploadimage.php";
 session_start();
+//include_once "Model/class.phpmailer.php";
+set_include_path(get_include_path().PATH_SEPARATOR.'Model/');
+spl_autoload_extensions('.php');
+spl_autoload_register();
 ?>  
 <!DOCTYPE html>
 <html lang="en">
@@ -11,8 +13,8 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <script src="../node_modules/jquery/dist/jquery.js"></script>
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script> -->
     <!-- link đăng nhập -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -29,8 +31,12 @@ session_start();
 
 <body>
 <!-- Thanh header tao menu -->
-<?php
-            include "View/headder.php";
+        <?php
+            if(isset($_SESSION['admin']))
+            {
+                include "View/headder.php";
+            }
+            
         ?>
         <!-- end hinh dong -->
         <!-- phan thân -->
@@ -52,7 +58,11 @@ session_start();
     </div>
     <!-- footer -->
     <?php
-        include "View/footer.php"
+    if(isset($_SESSION['admin']))
+    {
+        include "View/footer.php";
+    }
+       
     ?>
     <!-- end footer -->
    
